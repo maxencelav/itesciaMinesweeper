@@ -1,1 +1,75 @@
+body {
+	background: url(/assets/img/xp/background.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
 
+	padding: none;
+	margin: 0;
+	text-align: center;
+	vertical-align: center;
+
+	font-family: Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1em;
+}
+
+h1 {
+	display: none;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-image: url(/assets/img/xp/taskbarBg.png);
+	margin: 0;
+	height: 30px;
+}
+
+footer img {
+	height: 100%;
+	width: auto;
+	margin: 0;
+}
+
+#conteneurDemineur {
+	overflow: hidden;
+
+	display: inline-block;
+	width: fit-content;
+	min-width: 300px;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+
+	border-color: #2d5ccc;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 0.5em;
+
+	background-color: #c0c0c0;
+}
+
+#conteneurDemineur:before {
+	display: inline-block;
+	background-color: #2d5ccc;
+	background-image: url('/assets/img/xp/windowButtons.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 98%;
+
+	height: 21px;
+	width: 100%;
+
+	border-color: #2d5ccc;
+	border-style: solid;
+	color: #fff;
+
+	content: "Démineur";
+	text-align: left;
+}
