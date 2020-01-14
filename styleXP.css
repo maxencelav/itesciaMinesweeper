@@ -26,6 +26,7 @@ footer {
 	background-image: url(/assets/img/xp/taskbarBg.png);
 	margin: 0;
 	height: 30px;
+	text-align: left;
 }
 
 footer img {
