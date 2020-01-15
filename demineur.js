@@ -90,12 +90,30 @@ function genererGrille(value) {
         for (var j = 0; j < taille; j++) {
             nombreCases++;
             cell = row.insertCell(j);
-            cell.onclick = function () {
-                clicCellule(this);
-            };
+
             var mine = document.createAttribute("possedeMine");
             mine.value = "false";
             cell.setAttributeNode(mine);
+
+            var mine = document.createAttribute("id");
+            mine.value = "bouton" + i + "." + j;
+            cell.setAttributeNode(mine);
+
+
+            //Si on clique sur une case
+            cell.onclick = function () {
+
+                //console.log("clic de " + $(this).attr('id'))
+
+                clicCellule($(this).attr('id').replace(/[^\d.-]/g, ''));
+            };
+
+            //Si on clique droit sur une case
+            cell.oncontextmenu = function () {
+                console.log("clic droit de " + $(this).attr('id'))
+                $(this).toggleClass("flag")
+                return false; // cancel default menu
+            };
         }
     }
     ajouterMines();
@@ -106,6 +124,7 @@ function genererGrille(value) {
 function nouvellePartie() {
     secondes = 0;
     minutes = 0;
+    nombreCases = 0;
     //Lancement du chronomètre
     chronoStart();
     genererGrille($('#selectionDifficulte').find(":selected").val())
@@ -113,7 +132,29 @@ function nouvellePartie() {
 }
 
 function ajouterMines(value) {
-    for (var i = 0; i < 20; i++) {
+    switch (value) {
+        case '0':
+            nombreBombes = 9;
+            break;
+
+        case '1':
+            nombreBombes = 16;
+            break;
+
+        case '2':
+            nombreBombes = 22;
+            break;
+
+        case '3':
+            nombreBombes = 30;
+            break;
+
+        default:
+            nombreBombes = 9;
+            break;
+
+    }
+    for (var i = 0; i < nombreBombes; i++) {
         var row = Math.floor(Math.random() * 10);
         var col = Math.floor(Math.random() * 10);
         var cell = grille.rows[row].cells[col];
@@ -121,7 +162,23 @@ function ajouterMines(value) {
     }
 }
 
-function clicCellule() {
+function clicCellule(id) {
+    console.log("traitement de la case: " + id)
+    let coordCellules = id.split(".")
+    console.log(coordCellules)
 
-    console.log("clic de cellule")
+    // vérifier si case a la possedemine="true"
 }
+
+function clicDroitCellule(id) {
+    console.log("drapeau sur la case: " + id)
+    let coordCellules = id.split(".")
+
+    let idBouton = 'bouton' + coordCellules[0] + '.' + coordCellules[1]
+    console.log("#" + idBouton)
+    //$('#' + idBouton).attr("class", "flag")
+    $('' + idBouton).remove()
+
+}
+
+function bombesAdjacentes(coordCellules) {}
