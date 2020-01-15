@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Display';
+	src: url('/assets/fonts/display.ttf') format('truetype');
+}
+
 body {
 	background: url(/assets/img/xp/background.jpg);
 	background-repeat: no-repeat;
@@ -73,4 +78,21 @@ footer img {
 
 	content: "Démineur";
 	text-align: left;
+}
+
+#interface {
+	background-color: #f4f3ee;
+	height: 30px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+#timer {
+	color: red;
+	background-color: black;
+	padding: 0.2em;
+	padding-bottom: 0.4em;
+	line-height: 1.4;
+	font-size: 1.2em;
+	font-family: Display, monospace;
 }
