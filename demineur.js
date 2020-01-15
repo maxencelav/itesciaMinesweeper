@@ -187,12 +187,17 @@ function clicCellule(id) {
 
     console.log(coordCellules)
 
+    // TODO
     // vérifier si case a la possedemine="true"
+    // si false faire fonction check des 9 cases autour
+    // avec bombesAdjacentes pour savoir la classe
 }
 
 
 function bombesAdjacentes(coordCellules) {
     let compteurBombes = 0;
+
+    // TODO
     // pour les 9 cases autour de celle envoyées
     // regarder l'attribut "possedemine"
     // si "true", compteurBombes++;
@@ -208,5 +213,5 @@ function bombesAdjacentes(coordCellules) {
         "seven", // 7
         "eight" // 8
     ]
-    return classes[compteurBombes];
+    return classes[compteurBombes]; // return le nom de la classe correspondant au 
 }
