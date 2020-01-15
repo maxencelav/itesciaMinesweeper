@@ -230,10 +230,6 @@ table #text {
 	display: none;
 }
 
-tr {
-	height: 13px !important;
-}
-
 td {
 	margin: none;
 	width: 16px;

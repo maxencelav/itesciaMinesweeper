@@ -54,7 +54,7 @@ table {
 }
 
 td {
-	display: inline-block;
+	margin: none;
 	width: 20px;
 	height: 20px;
 
