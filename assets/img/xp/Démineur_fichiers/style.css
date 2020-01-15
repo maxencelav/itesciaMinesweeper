@@ -1,0 +1,105 @@
+body {
+	font-family: 'Finger Paint', cursive;
+	text-align: center;
+	margin: 0;
+}
+
+footer {
+	display: none;
+}
+
+h1 {
+	font-family: 'Flavors', cursive;
+	font-size: 6em;
+	font-weight: 100;
+}
+/* Tableau du démineur */
+#grille {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+table {
+	align-self: center;
+}
+
+tr,
+th,
+td,
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	padding: 0px;
+}
+
+#text {
+	display: none;
+}
+#timer {
+	display: block;
+	font-size: 2em;
+}
+
+td {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+
+	background-image: url(/assets/img/basic/normal.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	border-collapse: collapse;
+	transition: 0.2s;
+}
+
+td:hover {
+	transform: scale(1.2);
+}
+
+/* Classes des cases du tableau */
+
+.clicked {
+	background-image: url(/assets/img/basic/empty.png);
+}
+
+.bomb {
+	background-image: url(/assets/img/basic/bomb.png);
+}
+
+.bombDiscovered {
+	background-image: url(/assets/img/basic/bomb.png);
+}
+
+.one {
+	background-image: url(/assets/img/basic/1.png);
+}
+
+.two {
+	background-image: url(/assets/img/basic/2.png);
+}
+
+.three {
+	background-image: url(/assets/img/basic/3.png);
+}
+
+.four {
+	background-image: url(/assets/img/basic/4.png);
+}
+
+.five {
+	background-image: url(/assets/img/basic/5.png);
+}
+
+.six {
+	background-image: url(/assets/img/basic/6.png);
+}
+
+.seven {
+	background-image: url(/assets/img/basic/7.png);
+}
+
+.eight {
+	background-image: url(/assets/img/xp/8.png);
+}
