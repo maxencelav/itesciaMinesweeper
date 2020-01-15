@@ -50,16 +50,16 @@
     <div id="conteneurDemineur">
         <div id="interface">
             <select id="selectionDifficulte">
-                <option value="volvo">Débutant (9x9 cases, 10 bombes)</option>
-                <option value="saab">Intermédiaire (16x16 cases, 40 bombes)</option>
-                <option value="mercedes">Expert (22x22 cases, 100 bombes)</option>
-                <option value="audi">Maître (30x30 cases, 250 bombes)</option>
+                <option value="0">Débutant (9x9 cases, 10 bombes)</option>
+                <option value="1">Intermédiaire (16x16 cases, 40 bombes)</option>
+                <option value="2">Expert (22x22 cases, 100 bombes)</option>
+                <option value="3">Maître (30x30 cases, 250 bombes)</option>
             </select>
-            <button id="commencerPartie">▶</button>
-            <span id="timer">12:34</span>
+            <button id="commencerPartie" onClick="nouvellePartie()">▶</button>
+            <span id="timer">00:00</span>
         </div>
         <div id="grille">
-            <table cellspacing=0 cellpadding=0>
+            <table id="tableGrille">
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>

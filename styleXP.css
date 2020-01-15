@@ -189,6 +189,7 @@ button:active {
 	box-shadow: inset 0px 0px 0px 2px #a1a1a1;
 }
 
+/* timer */
 #timer {
 	display: inline-block;
 	background-color: black;
@@ -196,6 +197,7 @@ button:active {
 	padding: 0.2em;
 	padding-bottom: 0.4em;
 	margin-left: 0.5em;
+	width: 60px;
 
 	line-height: 1.4;
 	font-size: 2em;
@@ -237,7 +239,7 @@ td {
 	background-size: cover;
 	background-attachment: fixed;
 	border-collapse: collapse;
-	margin: -3px;
+	/*margin: -3px;*/
 
 	cursor: pointer;
 }
