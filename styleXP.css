@@ -196,15 +196,17 @@ button:active {
 
 	padding: 0.2em;
 	padding-bottom: 0.4em;
-	margin-left: 0.5em;
+	margin-left: auto;
 	width: 60px;
 
 	line-height: 1.4;
 	font-size: 2em;
 	font-family: Display, monospace;
 	color: red;
+	text-align: center;
 }
 
+/* div contenant le table */
 #grille {
 	display: flex;
 	justify-content: center;
@@ -224,14 +226,18 @@ table {
 	padding: 0px;
 }
 
-#text {
+table #text {
 	display: none;
 }
 
+tr {
+	height: 13px !important;
+}
+
 td {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
+	margin: none;
+	width: 16px;
+	height: 16px;
 
 	background-image: url(/assets/img/xp/normal.png);
 	background-repeat: no-repeat;
@@ -239,7 +245,6 @@ td {
 	background-size: cover;
 	background-attachment: fixed;
 	border-collapse: collapse;
-	/*margin: -3px;*/
 
 	cursor: pointer;
 }

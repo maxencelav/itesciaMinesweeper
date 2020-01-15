@@ -1,6 +1,5 @@
 var timerTexte = document.getElementById('timer'),
     grille = document.getElementById("tableGrille"),
-    valeurDifficulté = $('#selectionDifficulte').val(),
     isXp = false,
     secondes = 0,
     minutes = 0,
@@ -38,7 +37,7 @@ function attente() {
 }
 
 function chronoStart() {
-
+    clearInterval(timer);
     start = Date.now();
 
     console.log("start " + start)
@@ -48,8 +47,10 @@ function chronoStart() {
 }
 
 function genererGrille(value) {
+    console.log(value)
     nombreCases = 0;
     let taille = 0;
+
     switch (value) {
         case '0':
             console.log("debutant");
@@ -84,9 +85,9 @@ function genererGrille(value) {
     }
 
 
-    for (var i = 0; i < taille + 1; i++) {
+    for (var i = 0; i < taille; i++) {
         row = grille.insertRow(i);
-        for (var j = 0; j < taille + 1; j++) {
+        for (var j = 0; j < taille; j++) {
             nombreCases++;
             cell = row.insertCell(j);
             cell.onclick = function () {
@@ -103,9 +104,11 @@ function genererGrille(value) {
 }
 
 function nouvellePartie() {
+    secondes = 0;
+    minutes = 0;
     //Lancement du chronomètre
     chronoStart();
-    genererGrille(valeurDifficulté)
+    genererGrille($('#selectionDifficulte').find(":selected").val())
 
 }
 
