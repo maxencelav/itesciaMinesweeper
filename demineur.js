@@ -1,10 +1,23 @@
-/**
- * Efface l’écran de la console * @return void
- */
-function cls() {
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        system('cls');
-    } else {
-        system('clear');
-    }
+isXp = false;
+
+function switchCss() {
+    //console.log("isXP?: " + isXp);
+
+    console.log(location.getUrlParameter('theme'))
+
+    /*
+        if (isXp) {
+            $('head').append($('<link id="css" rel="stylesheet" href="style.css">'));
+            $('head').remove($('<link id="css" rel="stylesheet" href="styleXp.css">'));
+            location.reload()
+            isXp = false;
+
+        } else {
+            $('head').remove($('<link id="css" rel="stylesheet" href="style.css">'));
+            $('head').append($('<link id="css" rel="stylesheet" href="styleXp.css">'));
+            location.reload()
+            isXp = true;
+        }
+        
+        */
 }
