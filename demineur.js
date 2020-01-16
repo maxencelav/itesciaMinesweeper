@@ -113,7 +113,17 @@ function genererGrille(value) {
             cell.onclick = function () {
                 console.log("clic de " + $(this).attr('id'))
 
-                clicCellule($(this).attr('id').replace(/[^\d.-]/g, ''));
+
+                console.log("possedemine? " + $(this).attr('possedemine'));
+
+                if ($(this).attr('possedemine') == true) { // Si la case est une bombe
+                    gameOver();
+                } else {
+                    console.log(bombesAdjacentes($(this).attr('id').split(".")))
+                    $(this).addClass(bombesAdjacentes($(this).attr('id').split(".")));
+                }
+
+
                 //on lance la fonction de clic en ne lui filant que [ligne].[colonne]
             };
 
@@ -182,11 +192,6 @@ function ajouterMines(value, taille) {
 }
 
 function clicCellule(id) {
-    console.log("traitement de la case: " + id)
-    let coordCellules = id.split(".")
-    // on sépare l'id en un array de deux cases, ligne et colonne
-
-    console.log(coordCellules)
 
     // TODO
     // vérifier si case a la possedemine="true"
@@ -215,4 +220,23 @@ function bombesAdjacentes(coordCellules) {
         "eight" // 8
     ]
     return classes[compteurBombes]; // return le nom de la classe correspondant au 
+}
+
+function revelationCasesVides(coordCellule) {
+    let ligne = coordCellule[0];
+    let colonne = coordCellule[1];
+
+    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, 9); i++) {
+        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, 9); j++) {
+
+            let lectureCase = document.getElementById(i + "." + j);
+            console.log("possedemine? " + lectureCase.getAttribute('possedemine'));
+
+            if (grid.rows[i].cells[j].attr('possedemine') == "false") {
+                clicCellule(grid.rows[i].cells[j]);
+
+            }
+        }
+
+    }
 }

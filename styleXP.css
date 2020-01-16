@@ -246,7 +246,7 @@ td {
 
 /* Classes des cases du tableau */
 
-.clicked {
+.empty {
 	background-image: url(/assets/img/xp/empty.png);
 }
 
