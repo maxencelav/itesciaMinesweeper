@@ -48,7 +48,7 @@ function chronoStart() {
 function genererGrille(value) {
     console.log(value) // on log la valeur de difficulté
     nombreCases = 0;
-    let taille = 0; // on remet les variables à 0
+    taille = 0; // on remet les variables à 0
 
     switch (value) {
         // on met en place la largeur/hauteur selon la difficulté
@@ -113,7 +113,6 @@ function genererGrille(value) {
             cell.onclick = function () {
                 console.log("clic de " + $(this).attr('id'))
 
-
                 console.log("possedemine? " + $(this).attr('possedemine'));
 
                 if ($(this).attr('possedemine') == "true") { // Si la case est une bombe
@@ -121,10 +120,11 @@ function genererGrille(value) {
                 } else {
                     console.log("pas bombe")
                     $(this).addClass(bombesAdjacentes($(this).attr('id').split(".")));
+                    FinDePartie();
                 }
 
-
                 //on lance la fonction de clic en ne lui filant que [ligne].[colonne]
+            
             };
 
             //Si on clique droit sur une case
@@ -233,7 +233,7 @@ function bombesAdjacentes(coordCellule) {
         }
     }
 
-    let classes = [ // liste de classes pour chaque nombre de bombes
+    classes = [ // liste de classes pour chaque nombre de bombes
         "empty", // 0   
         "one", // 1
         "two", // 2
@@ -255,8 +255,8 @@ function revelationCasesVides(coordCellule) {
     let ligne = coordCellule[0];
     let colonne = coordCellule[1];
 
-    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, 9); i++) {
-        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, 9); j++) {
+    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille-1); i++) {
+        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille-1); j++) {
 
             let lectureCase = document.getElementById(i + "." + j);
             console.log("possedemine? " + lectureCase.getAttribute('possedemine'));
@@ -268,4 +268,19 @@ function revelationCasesVides(coordCellule) {
         }
 
     }
+}
+
+function FinDePartie(){
+    console.log("End ?");
+    for (var i = 0; i <= (taille-1); i++) {
+        for (var j = 0; j <= (taille-1); j++) {
+            console.log(i,j);
+            if (grille.rows[i].cells[j].getAttribute('possedeMine') == "false") {
+                if(!classes.includes(grille.rows[i].cells[j].className))
+                return false;
+            }
+        }
+    }
+    console.log("GG");
+    alert("GG !")
 }
