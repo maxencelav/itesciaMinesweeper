@@ -84,7 +84,7 @@ td:hover {
 }
 
 .bombDiscovered {
-	background-image: url(/assets/img/basic/bomb.png);
+	background-image: url(/assets/img/basic/bombDiscovered.png);
 }
 
 .flag {

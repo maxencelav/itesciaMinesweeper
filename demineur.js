@@ -3,7 +3,18 @@ var timerTexte = document.getElementById('timer'),
     isXp = false,
     secondes = 0,
     minutes = 0,
-    nombreCases = 0;
+    nombreCases = 0,
+    classes = [ // liste de classes pour chaque nombre de bombes
+        "empty", // 0   
+        "one", // 1
+        "two", // 2
+        "three", // 3
+        "four", // 4
+        "five", // 5
+        "six", // 6
+        "seven", // 7
+        "eight" // 8
+    ]
 
 //Detecte le fichier CSS et change à l'autre en fonction
 function switchCss() {
@@ -117,8 +128,9 @@ function genererGrille(value) {
 
                 if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
                     gameOver();
-
+                    $(this).attr('class', 'bombDiscovered')
                     console.log("bombe!")
+
                 } else if ($(this).attr("class") == undefined) {
                     classeBouton = bombesAdjacentes($(this).attr('id').split("."))
                     $(this).addClass(classeBouton);
@@ -145,8 +157,7 @@ function genererGrille(value) {
                     }
 
                 }
-                FinDePartie();
-
+                FinDePartie(); // on regarde si la partie est gagnée
             };
 
 
@@ -238,18 +249,6 @@ function bombesAdjacentes(coordCellule) {
         }
     }
 
-    classes = [ // liste de classes pour chaque nombre de bombes
-        "empty", // 0   
-        "one", // 1
-        "two", // 2
-        "three", // 3
-        "four", // 4
-        "five", // 5
-        "six", // 6
-        "seven", // 7
-        "eight" // 8
-    ]
-
     //console.log(grille.rows[coordCellules[0]].cells[coordCellules[1]]);
 
     console.log("vérif bombesAdjacentes sur " + coordCellule + " " + compteurBombes + " bombes");
@@ -273,11 +272,17 @@ function FinDePartie() {
             }
         }
     }
+    clearInterval(timer); // on arrête l'attente
+    $("td").prop("onclick", null).off("click"); // on désactive les clicks sur les cases
+
     alert("GG !")
 
 }
 
 function gameOver() {
+    clearInterval(timer); // on arrête l'attente
+    $("td").prop("onclick", null).off("click"); // on désactive les clicks sur les cases
+
     for (var i = 0; i <= (taille - 1); i++) {
         for (var j = 0; j <= (taille - 1); j++) {
             if (grille.rows[i].cells[j].getAttribute('possedeMine') == "true") {
@@ -287,4 +292,7 @@ function gameOver() {
             }
         }
     }
+
+    alert("GAME OVER")
+
 }
