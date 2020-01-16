@@ -18,13 +18,13 @@ var timerTexte = document.getElementById('timer'),
 
 //Detecte le fichier CSS et change à l'autre en fonction
 function switchCss() {
-    let origin = window.location.origin; //récupère le site ou on est (blabla.com)
+    let origin = window.location.href.split('?')[0]; //récupère le site ou on est (blabla.com)
     let theme = getUrlParameter('theme'); //on récupère la variable dans l'url (/?theme=xxx)
 
     if (theme == "xp") { //si on a indiqué qu'on voulait le thème xp
         location.replace(origin) //on recharge la page sans thème
     } else {
-        location.replace(origin + "/?theme=xp") // on recharge la page avec thème
+        location.replace(origin + "?theme=xp") // on recharge la page avec thème
     }
 }
 
