@@ -127,7 +127,7 @@ function genererGrille(value) {
             };
         }
     }
-    ajouterMines(); // à la fin de la génération du tableau on ajoute les mines
+    ajouterMines(value, taille); // à la fin de la génération du tableau on ajoute les mines
 
 
 }
@@ -146,23 +146,23 @@ function ajouterMines(value, taille) {
     switch (value) {
         // on met en place le nombre de bombes selon la difficulté
         case '0':
-            nombreBombes = 9;
+            nombreBombes = 10;
             break;
 
         case '1':
-            nombreBombes = 16;
+            nombreBombes = 40;
             break;
 
         case '2':
-            nombreBombes = 22;
+            nombreBombes = 100;
             break;
 
         case '3':
-            nombreBombes = 30;
+            nombreBombes = 250;
             break;
 
         default:
-            nombreBombes = 9;
+            nombreBombes = 10;
             break;
 
     }
@@ -175,6 +175,7 @@ function ajouterMines(value, taille) {
         // on génère des coordonnées aléatoires
 
         var cell = grille.rows[row].cells[col];
+        console.log(cell);
         cell.setAttribute("possedeMine", "true");
         //on met l'attribut "possedemine" a true pour cette case
     }
