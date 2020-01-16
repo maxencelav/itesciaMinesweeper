@@ -17,7 +17,7 @@
 <!-- Chargement du CSS -->
 <script>
     
-    var getUrlParameter = function getUrlParameter(sParam) {
+    var getUrlParameter = function getUrlParameter(sParam) { 
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
@@ -30,14 +30,13 @@
                 return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
             }
         }
-    };
+    }; // fonction pour récupérer le paramètre dans l'URL
 
     let theme = getUrlParameter('theme');
-    console.log(theme);
-
-    if (theme == "xp"){
+    
+    if (theme == "xp"){ // si le thème choisi est xp
         $('head').append($('<link id="css" rel="stylesheet" href="styleXP.css">'));
-    } else {
+    } else { // sinon
         $('head').append($('<link id="css" rel="stylesheet" href="style.css">'));
     }
     
@@ -66,7 +65,7 @@
     </div>
 
 
-    <footer><img src="/assets/img/xp/start.png" alt="Start"></footer>
+    <footer><img src="assets/img/xp/start.png" alt="Start"></footer>
 
 </body>
 <script type="text/javascript" src="demineur.js"></script>

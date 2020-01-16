@@ -128,9 +128,9 @@ function genererGrille(value) {
                 console.log("mine? " + $(this).attr('possedemine'));
 
                 if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
-                    gameOver();
-                    $(this).attr('class', 'bombDiscovered')
-                    console.log("bombe!")
+                    gameOver(); // on affiche les bombes 
+                    $(this).attr('class', 'bombDiscovered') // on met la bombe cliquée en rouge
+                    alert("GAME OVER") // on affiche GAME OVER
 
                 } else if ($(this).attr("class") == undefined) {
                     classeBouton = bombesAdjacentes($(this).attr('id').split("."))
@@ -294,6 +294,5 @@ function gameOver() {
         }
     }
 
-    alert("GAME OVER")
 
 }
