@@ -262,6 +262,11 @@ td {
 	background-image: url(/assets/img/xp/flag.png);
 }
 
+.empty {
+	background-image: url(/assets/img/xp/empty.png);
+}
+
+
 .one {
 	background-image: url(/assets/img/xp/1.png);
 }

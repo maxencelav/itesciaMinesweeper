@@ -103,7 +103,7 @@ function genererGrille(value) {
 
 
             var mine = document.createAttribute("id"); //on crée l'id de la case 
-            mine.value = "bouton" + i + "." + j;
+            mine.value = i + "." + j;
             // sous le format #bouton[ligne].[colonne]
             // 1re ligne/case = 0, pas 1
             cell.setAttributeNode(mine); // on l'ajoute à la case
@@ -116,10 +116,11 @@ function genererGrille(value) {
 
                 console.log("possedemine? " + $(this).attr('possedemine'));
 
-                if ($(this).attr('possedemine') == true) { // Si la case est une bombe
+                if ($(this).attr('possedemine') == "true") { // Si la case est une bombe
+                    console.log("bombe!")
                     gameOver();
                 } else {
-                    console.log(bombesAdjacentes($(this).attr('id').split(".")))
+                    console.log("pas bombe")
                     $(this).addClass(bombesAdjacentes($(this).attr('id').split(".")));
                 }
 
@@ -197,16 +198,41 @@ function clicCellule(id) {
     // vérifier si case a la possedemine="true"
     // si false faire fonction check des 9 cases autour
     // avec bombesAdjacentes pour savoir la classe
+
+
 }
 
 
-function bombesAdjacentes(coordCellules) {
+function bombesAdjacentes(coordCellule) {
+    console.log(coordCellule)
+
+    let ligne = parseInt(coordCellule[0], 10);
+    let colonne = parseInt(coordCellule[1], 10);
     let compteurBombes = 0;
 
-    // TODO
-    // pour les 9 cases autour de celle envoyées
-    // regarder l'attribut "possedemine"
+    // pour les 8 cases autour de celle envoyées
+    // regarde l'attribut "possedemine"
     // si "true", compteurBombes++;
+
+    console.log("bombesAdjacentes " + coordCellule);
+
+    console.log("lignes: " + ligne - 1 + "  " + ligne + 1);
+    console.log("col: " + colonne - 1 + "  " + colonne + 1);
+
+    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, 9); i++) {
+
+
+        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, 9); j++) {
+            console.log("bouton " + i + "." + j);
+
+            //console.log( grille.rows[i].cells[j]+" "+grille.rows[i].cells[j].getAttribute("possedeMine"))
+            if (grille.rows[i].cells[j].getAttribute("possedeMine") == "true") {
+                compteurBombes++;
+            } else {
+                console.log("pas bombe")
+            }
+        }
+    }
 
     let classes = [ // liste de classes pour chaque nombre de bombes
         "empty", // 0   
@@ -219,6 +245,10 @@ function bombesAdjacentes(coordCellules) {
         "seven", // 7
         "eight" // 8
     ]
+
+    //console.log(grille.rows[coordCellules[0]].cells[coordCellules[1]]);
+
+    console.log(compteurBombes + classes[compteurBombes]);
     return classes[compteurBombes]; // return le nom de la classe correspondant au 
 }
 
