@@ -18,6 +18,7 @@ function switchCss() {
 }
 
 
+
 function ajoutTemps() {
 
     secondes += 1; // on ajoute une seconde
@@ -110,9 +111,11 @@ function genererGrille(value) {
 
 
             //Si on clique sur une case
-            cell.onclick = function () {
-                console.log("clic de " + $(this).attr('id'))
+            cell.onclick = function (e, type = "normal") {
+                console.log("Travail sur " + $(this).attr('id'))
+                console.log("mine? " + $(this).attr('possedemine'));
 
+<<<<<<< Updated upstream
                 console.log("possedemine? " + $(this).attr('possedemine'));
 
                 if ($(this).attr('possedemine') == "true") { // Si la case est une bombe
@@ -127,7 +130,38 @@ function genererGrille(value) {
 
                 //on lance la fonction de clic en ne lui filant que [ligne].[colonne]
             
+=======
+                if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
+                    console.log("bombe!")
+                } else if ($(this).attr("class") == undefined) {
+                    classeBouton = bombesAdjacentes($(this).attr('id').split("."))
+                    $(this).addClass(classeBouton);
+
+                    if (classeBouton == "empty") {
+                        //on révèle les cases autour car ce n'est pas des bombes 
+
+                        let ligne = parseInt($(this).attr('id').split(".")[0], 10);
+                        let colonne = parseInt($(this).attr('id').split(".")[1], 10);
+
+                        console.log(ligne + " " + colonne)
+
+                        for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille - 1); i++) {
+                            for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille - 1); j++) {
+                                console.log("Simulation de clic sur #" + i + '.' + j)
+                                console.log($('#' + i + '.' + j).attr("class"))
+
+                                var caseContour = document.getElementById(i + '.' + j);
+                                if (typeof caseContour.onclick == "function") {
+                                    caseContour.onclick.apply(caseContour);
+                                }
+                            }
+                        }
+                    }
+
+                }
+>>>>>>> Stashed changes
             };
+
 
             //Si on clique droit sur une case
             cell.oncontextmenu = function () {
@@ -148,6 +182,7 @@ function nouvellePartie() {
     secondes = 0;
     minutes = 0;
     nombreCases = 0;
+    taille = 0;
     //Lancement du chronomètre
     chronoStart();
     genererGrille($('#selectionDifficulte').find(":selected").val())
@@ -193,16 +228,6 @@ function ajouterMines(value, taille) {
     }
 }
 
-function clicCellule(id) {
-
-    // TODO
-    // vérifier si case a la possedemine="true"
-    // si false faire fonction check des 9 cases autour
-    // avec bombesAdjacentes pour savoir la classe
-
-
-}
-
 
 function bombesAdjacentes(coordCellule) {
     console.log(coordCellule)
@@ -215,22 +240,13 @@ function bombesAdjacentes(coordCellule) {
     // regarde l'attribut "possedemine"
     // si "true", compteurBombes++;
 
-    console.log("bombesAdjacentes " + coordCellule);
-
-    console.log("lignes: " + ligne - 1 + "  " + ligne + 1);
-    console.log("col: " + colonne - 1 + "  " + colonne + 1);
-
-    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, (taille-1)); i++) {
-
-
-        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, (taille-1)); j++) {
+    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille - 1); i++) {
+        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille - 1); j++) {
             console.log("bouton " + i + "." + j);
 
             //console.log( grille.rows[i].cells[j]+" "+grille.rows[i].cells[j].getAttribute("possedeMine"))
             if (grille.rows[i].cells[j].getAttribute("possedeMine") == "true") {
                 compteurBombes++;
-            } else {
-                console.log("pas bombe")
             }
         }
     }
@@ -249,20 +265,20 @@ function bombesAdjacentes(coordCellule) {
 
     //console.log(grille.rows[coordCellules[0]].cells[coordCellules[1]]);
 
-    console.log(compteurBombes + classes[compteurBombes]);
+    console.log("vérif bombesAdjacentes sur " + coordCellule + " " + compteurBombes + " bombes");
     return classes[compteurBombes]; // return le nom de la classe correspondant au 
 }
 
 function revelationCasesVides(coordCellule) {
-    let ligne = coordCellule[0];
-    let colonne = coordCellule[1];
 
+<<<<<<< Updated upstream
     for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille-1); i++) {
         for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille-1); j++) {
+=======
+>>>>>>> Stashed changes
 
-            let lectureCase = document.getElementById(i + "." + j);
-            console.log("possedemine? " + lectureCase.getAttribute('possedemine'));
 
+<<<<<<< Updated upstream
             if (grid.rows[i].cells[j].attr('possedemine') == "false") {
                 clicCellule(grid.rows[i].cells[j]);
 
@@ -282,6 +298,8 @@ function FinDePartie(){
         }
     }
     alert("GG !")
+=======
+>>>>>>> Stashed changes
 }
 
 function gameOver(){
