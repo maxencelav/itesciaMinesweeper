@@ -237,8 +237,8 @@ td {
 	background-image: url(/assets/img/xp/normal.png);
 	background-repeat: no-repeat;
 	background-position: center center;
+	background-attachment: none !important;
 	background-size: cover;
-	background-attachment: fixed;
 	border-collapse: collapse;
 
 	cursor: pointer;

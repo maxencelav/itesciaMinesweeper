@@ -62,6 +62,7 @@ td {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
+	background-attachment: none !important;
 	border-collapse: collapse;
 	transition: 0.2s;
 
