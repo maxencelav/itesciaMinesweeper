@@ -118,7 +118,6 @@ function genererGrille(value) {
 
                 if ($(this).attr('possedemine') == "true") { // Si la case est une bombe
                     console.log("bombe!")
-                    gameOver();
                 } else {
                     console.log("pas bombe")
                     $(this).addClass(bombesAdjacentes($(this).attr('id').split(".")));
@@ -219,10 +218,10 @@ function bombesAdjacentes(coordCellule) {
     console.log("lignes: " + ligne - 1 + "  " + ligne + 1);
     console.log("col: " + colonne - 1 + "  " + colonne + 1);
 
-    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, 9); i++) {
+    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, 8); i++) {
 
 
-        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, 9); j++) {
+        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, 8); j++) {
             console.log("bouton " + i + "." + j);
 
             //console.log( grille.rows[i].cells[j]+" "+grille.rows[i].cells[j].getAttribute("possedeMine"))
