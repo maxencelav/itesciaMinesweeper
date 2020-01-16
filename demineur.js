@@ -115,23 +115,9 @@ function genererGrille(value) {
                 console.log("Travail sur " + $(this).attr('id'))
                 console.log("mine? " + $(this).attr('possedemine'));
 
-<<<<<<< Updated upstream
-                console.log("possedemine? " + $(this).attr('possedemine'));
-
-                if ($(this).attr('possedemine') == "true") { // Si la case est une bombe
-                    console.log("bombe!")
-                    //gameOver();
-                    $(this).className="bombDiscovered";
-                } else {
-                    console.log("pas bombe")
-                    $(this).addClass(bombesAdjacentes($(this).attr('id').split(".")));
-                    FinDePartie();
-                }
-
-                //on lance la fonction de clic en ne lui filant que [ligne].[colonne]
-            
-=======
                 if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
+                    gameOver();
+
                     console.log("bombe!")
                 } else if ($(this).attr("class") == undefined) {
                     classeBouton = bombesAdjacentes($(this).attr('id').split("."))
@@ -159,7 +145,8 @@ function genererGrille(value) {
                     }
 
                 }
->>>>>>> Stashed changes
+                FinDePartie();
+
             };
 
 
@@ -270,45 +257,33 @@ function bombesAdjacentes(coordCellule) {
 }
 
 function revelationCasesVides(coordCellule) {
-
-<<<<<<< Updated upstream
-    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille-1); i++) {
-        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille-1); j++) {
-=======
->>>>>>> Stashed changes
-
-
-<<<<<<< Updated upstream
-            if (grid.rows[i].cells[j].attr('possedemine') == "false") {
-                clicCellule(grid.rows[i].cells[j]);
-
-            }
-        }
+    if (grid.rows[i].cells[j].attr('possedemine') == "false") {
+        clicCellule(grid.rows[i].cells[j]);
 
     }
 }
 
-function FinDePartie(){
-    for (var i = 0; i <= (taille-1); i++) {
-        for (var j = 0; j <= (taille-1); j++) {
+
+function FinDePartie() {
+    for (var i = 0; i <= (taille - 1); i++) {
+        for (var j = 0; j <= (taille - 1); j++) {
             if (grille.rows[i].cells[j].getAttribute('possedeMine') == "false") {
-                if(!classes.includes(grille.rows[i].cells[j].className))
-                return false;
+                if (!classes.includes(grille.rows[i].cells[j].className))
+                    return false;
             }
         }
     }
     alert("GG !")
-=======
->>>>>>> Stashed changes
+
 }
 
-function gameOver(){
-    for (var i = 0; i <= (taille-1); i++) {
-        for (var j = 0; j <= (taille-1); j++) {
+function gameOver() {
+    for (var i = 0; i <= (taille - 1); i++) {
+        for (var j = 0; j <= (taille - 1); j++) {
             if (grille.rows[i].cells[j].getAttribute('possedeMine') == "true") {
-                let bombCell=grille.rows[i].cells[j];
+                let bombCell = grille.rows[i].cells[j];
                 console.log(bombCell);
-                bombCell.className="bomb";
+                bombCell.className = "bomb";
             }
         }
     }
