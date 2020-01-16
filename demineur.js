@@ -117,6 +117,8 @@ function genererGrille(value) {
 
                 if ($(this).attr('possedemine') == "true") { // Si la case est une bombe
                     console.log("bombe!")
+                    //gameOver();
+                    $(this).className="bombDiscovered";
                 } else {
                     console.log("pas bombe")
                     $(this).addClass(bombesAdjacentes($(this).attr('id').split(".")));
@@ -218,10 +220,10 @@ function bombesAdjacentes(coordCellule) {
     console.log("lignes: " + ligne - 1 + "  " + ligne + 1);
     console.log("col: " + colonne - 1 + "  " + colonne + 1);
 
-    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, 8); i++) {
+    for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, (taille-1)); i++) {
 
 
-        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, 8); j++) {
+        for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, (taille-1)); j++) {
             console.log("bouton " + i + "." + j);
 
             //console.log( grille.rows[i].cells[j]+" "+grille.rows[i].cells[j].getAttribute("possedeMine"))
@@ -271,16 +273,25 @@ function revelationCasesVides(coordCellule) {
 }
 
 function FinDePartie(){
-    console.log("End ?");
     for (var i = 0; i <= (taille-1); i++) {
         for (var j = 0; j <= (taille-1); j++) {
-            console.log(i,j);
             if (grille.rows[i].cells[j].getAttribute('possedeMine') == "false") {
                 if(!classes.includes(grille.rows[i].cells[j].className))
                 return false;
             }
         }
     }
-    console.log("GG");
     alert("GG !")
+}
+
+function gameOver(){
+    for (var i = 0; i <= (taille-1); i++) {
+        for (var j = 0; j <= (taille-1); j++) {
+            if (grille.rows[i].cells[j].getAttribute('possedeMine') == "true") {
+                let bombCell=grille.rows[i].cells[j];
+                console.log(bombCell);
+                bombCell.className="bomb";
+            }
+        }
+    }
 }
