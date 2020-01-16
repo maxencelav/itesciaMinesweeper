@@ -58,7 +58,7 @@ td {
 	width: 20px;
 	height: 20px;
 
-	background-image: url(/assets/img/basic/normal.png);
+	background-image: url(assets/img/basic/normal.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -76,49 +76,49 @@ td:hover {
 /* Classes des cases du tableau */
 
 .empty {
-	background-image: url(/assets/img/basic/empty.png);
+	background-image: url(assets/img/basic/empty.png);
 }
 
 .bomb {
-	background-image: url(/assets/img/basic/bomb.png);
+	background-image: url(assets/img/basic/bomb.png);
 }
 
 .bombDiscovered {
-	background-image: url(/assets/img/basic/bombDiscovered.png);
+	background-image: url(assets/img/basic/bombDiscovered.png);
 }
 
 .flag {
-	background-image: url(/assets/img/basic/flag.png);
+	background-image: url(assets/img/basic/flag.png);
 }
 
 .one {
-	background-image: url(/assets/img/basic/1.png);
+	background-image: url(assets/img/basic/1.png);
 }
 
 .two {
-	background-image: url(/assets/img/basic/2.png);
+	background-image: url(assets/img/basic/2.png);
 }
 
 .three {
-	background-image: url(/assets/img/basic/3.png);
+	background-image: url(assets/img/basic/3.png);
 }
 
 .four {
-	background-image: url(/assets/img/basic/4.png);
+	background-image: url(assets/img/basic/4.png);
 }
 
 .five {
-	background-image: url(/assets/img/basic/5.png);
+	background-image: url(assets/img/basic/5.png);
 }
 
 .six {
-	background-image: url(/assets/img/basic/6.png);
+	background-image: url(assets/img/basic/6.png);
 }
 
 .seven {
-	background-image: url(/assets/img/basic/7.png);
+	background-image: url(assets/img/basic/7.png);
 }
 
 .eight {
-	background-image: url(/assets/img/xp/8.png);
+	background-image: url(assets/img/xp/8.png);
 }

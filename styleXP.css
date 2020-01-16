@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'Display';
-	src: url('/assets/fonts/display.ttf') format('truetype');
+	src: url('assets/fonts/display.ttf') format('truetype');
 }
 
 body {
-	background: url(/assets/img/xp/background.jpg);
+	background: url(assets/img/xp/background.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -31,7 +31,7 @@ body {
 }
 
 #themeSwitcher::before {
-	content: url(/assets/img/xp/theme.png);
+	content: url(assets/img/xp/theme.png);
 	margin: 0 auto;
 }
 
@@ -46,7 +46,7 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background-image: url(/assets/img/xp/taskbarBg.png);
+	background-image: url(assets/img/xp/taskbarBg.png);
 	margin: 0;
 	height: 30px;
 	text-align: left;
@@ -86,7 +86,7 @@ footer img {
 	background-attachment: fixed;
 	background-position: 98%;
 
-	background: url(/assets/img/xp/windowButtons.png), #2d5ccc;
+	background: url(assets/img/xp/windowButtons.png), #2d5ccc;
 	background-repeat: no-repeat, repeat;
 	background-position: 98%, 200%;
 
@@ -128,7 +128,7 @@ footer img {
 	appearance: none;
 
 	background-color: #fff;
-	background: url(/assets/img/xp/dropdown.png), #ffffff;
+	background: url(assets/img/xp/dropdown.png), #ffffff;
 	background-repeat: no-repeat, repeat;
 	background-position: right 0.3em top 50%, 0 0;
 	background-size: 1.5em auto, 100%;
@@ -234,7 +234,7 @@ td {
 	width: 16px;
 	height: 16px;
 
-	background-image: url(/assets/img/xp/normal.png);
+	background-image: url(assets/img/xp/normal.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: none !important;
@@ -247,54 +247,53 @@ td {
 /* Classes des cases du tableau */
 
 .empty {
-	background-image: url(/assets/img/xp/empty.png);
+	background-image: url(assets/img/xp/empty.png);
 }
 
 .bomb {
-	background-image: url(/assets/img/xp/bomb.png);
+	background-image: url(assets/img/xp/bomb.png);
 }
 
 .bombDiscovered {
-	background-image: url(/assets/img/xp/bombDiscovered.png);
+	background-image: url(assets/img/xp/bombDiscovered.png);
 }
 
 .flag {
-	background-image: url(/assets/img/xp/flag.png);
+	background-image: url(assets/img/xp/flag.png);
 }
 
 .empty {
-	background-image: url(/assets/img/xp/empty.png);
+	background-image: url(assets/img/xp/empty.png);
 }
 
-
 .one {
-	background-image: url(/assets/img/xp/1.png);
+	background-image: url(assets/img/xp/1.png);
 }
 
 .two {
-	background-image: url(/assets/img/xp/2.png);
+	background-image: url(assets/img/xp/2.png);
 }
 
 .three {
-	background-image: url(/assets/img/xp/3.png);
+	background-image: url(assets/img/xp/3.png);
 }
 
 .four {
-	background-image: url(/assets/img/xp/4.png);
+	background-image: url(assets/img/xp/4.png);
 }
 
 .five {
-	background-image: url(/assets/img/xp/5.png);
+	background-image: url(assets/img/xp/5.png);
 }
 
 .six {
-	background-image: url(/assets/img/xp/6.png);
+	background-image: url(assets/img/xp/6.png);
 }
 
 .seven {
-	background-image: url(/assets/img/xp/7.png);
+	background-image: url(assets/img/xp/7.png);
 }
 
 .eight {
-	background-image: url(/assets/img/xp/8.png);
+	background-image: url(assets/img/xp/8.png);
 }
