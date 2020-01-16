@@ -1,4 +1,4 @@
-var timerTexte = document.getElementById('timer'),
+timerTexte = document.getElementById('timer'),
     grille = document.getElementById("tableGrille"),
     isXp = false,
     secondes = 0,
@@ -14,7 +14,8 @@ var timerTexte = document.getElementById('timer'),
         "six", // 6
         "seven", // 7
         "eight" // 8
-    ]
+    ],
+    listeCasesMines = [];
 
 //Detecte le fichier CSS et change à l'autre en fonction
 function switchCss() {
@@ -216,15 +217,22 @@ function ajouterMines(value, taille) {
     // pour le nombre de bombes
     for (var i = 0; i < nombreBombes; i++) {
 
-        var row = Math.floor(Math.random() * taille);
-        var col = Math.floor(Math.random() * taille);
+        do {
+            var row = Math.floor(Math.random() * taille);
+            var col = Math.floor(Math.random() * taille);
+        } while ((listeCasesMines.includes(row + "." + col)));
+        listeCasesMines.push(row + "." + col);
+
         // on génère des coordonnées aléatoires
 
         var cell = grille.rows[row].cells[col];
-        console.log(cell);
+        //console.log(cell);
         cell.setAttribute("possedeMine", "true");
         //on met l'attribut "possedemine" a true pour cette case
     }
+
+    console.log(listeCasesMines);
+
 }
 
 

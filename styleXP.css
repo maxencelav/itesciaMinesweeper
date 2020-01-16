@@ -250,16 +250,16 @@ td {
 	background-image: url(assets/img/xp/empty.png);
 }
 
+.flag {
+	background-image: url(assets/img/xp/flag.png);
+}
+
 .bomb {
 	background-image: url(assets/img/xp/bomb.png);
 }
 
 .bombDiscovered {
 	background-image: url(assets/img/xp/bombDiscovered.png);
-}
-
-.flag {
-	background-image: url(assets/img/xp/flag.png);
 }
 
 .empty {

@@ -79,16 +79,16 @@ td:hover {
 	background-image: url(assets/img/basic/empty.png);
 }
 
+.flag {
+	background-image: url(assets/img/basic/flag.png);
+}
+
 .bomb {
 	background-image: url(assets/img/basic/bomb.png);
 }
 
 .bombDiscovered {
 	background-image: url(assets/img/basic/bombDiscovered.png);
-}
-
-.flag {
-	background-image: url(assets/img/basic/flag.png);
 }
 
 .one {
