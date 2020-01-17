@@ -131,6 +131,7 @@ function genererGrille(value) {
                 if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
                     gameOver(); // on affiche les bombes 
                     $(this).attr('class', 'bombDiscovered') // on met la bombe cliquée en rouge
+
                     alert("GAME OVER") // on affiche GAME OVER
 
                 } else if ($(this).attr("class") == undefined) {
@@ -185,6 +186,8 @@ function nouvellePartie() {
     taille = 0;
     //Lancement du chronomètre
     chronoStart();
+    confetti.stop()
+
     genererGrille($('#selectionDifficulte').find(":selected").val())
 
 }
@@ -283,7 +286,7 @@ function FinDePartie() {
     }
     clearInterval(timer); // on arrête l'attente
     $("td").prop("onclick", null).off("click"); // on désactive les clicks sur les cases
-
+    confetti.start()
     alert("GG !")
 
 }

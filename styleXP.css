@@ -4,7 +4,7 @@
 }
 
 body {
-	background: url(assets/img/xp/background.jpg);
+	background: url(assets/img/xp/background.jpg), linear-gradient(#8db5f4, #779a25);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
