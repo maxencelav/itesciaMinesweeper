@@ -128,7 +128,11 @@ function genererGrille(value) {
                 console.log("Travail sur " + $(this).attr('id'))
                 console.log("mine? " + $(this).attr('possedemine'));
 
-                if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
+
+                if ($(this).attr("class") == "flag") {
+                    //on fait rien 
+
+                } else if ($(this).attr('possedemine') == "true" && type != "sim") { // Si la case est une bombe
                     gameOver(); // on affiche les bombes 
                     $(this).attr('class', 'bombDiscovered') // on met la bombe cliquée en rouge
 
@@ -287,8 +291,7 @@ function FinDePartie() {
     clearInterval(timer); // on arrête l'attente
     $("td").prop("onclick", null).off("click"); // on désactive les clicks sur les cases
     confetti.start()
-    alert("GG !")
-
+    alert("Victoire !")
 }
 
 function gameOver() {
