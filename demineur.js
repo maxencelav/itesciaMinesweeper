@@ -134,7 +134,7 @@ function genererGrille(value) {
 
                     alert("GAME OVER") // on affiche GAME OVER
 
-                } else if ($(this).attr("class") == undefined) {
+                } else if ($(this).attr("class") == undefined || $(this).attr("class") == '') {
                     classeBouton = bombesAdjacentes($(this).attr('id').split("."))
                     $(this).addClass(classeBouton);
 
