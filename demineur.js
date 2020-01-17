@@ -139,10 +139,14 @@ function genererGrille(value) {
                     alert("GAME OVER") // on affiche GAME OVER
 
                 } else if ($(this).attr("class") == undefined || $(this).attr("class") == '') {
-                    classeBouton = bombesAdjacentes($(this).attr('id').split("."))
-                    $(this).addClass(classeBouton);
+                    //si la case n'a pas déja été cliquée
 
-                    if (classeBouton == "empty") {
+                    classeBouton = bombesAdjacentes($(this).attr('id').split("."))
+                    // on récupère le nombre de cases adjacentes
+                    $(this).addClass(classeBouton);
+                    // et on l'assigne à la case
+
+                    if (classeBouton == "empty") { // si la case est vide
                         //on révèle les cases autour car ce n'est pas des bombes 
 
                         let ligne = parseInt($(this).attr('id').split(".")[0], 10);
@@ -152,12 +156,14 @@ function genererGrille(value) {
 
                         for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille - 1); i++) {
                             for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille - 1); j++) {
+                                //pour chaque case autour
                                 console.log("Simulation de clic sur #" + i + '.' + j)
                                 console.log($('#' + i + '.' + j).attr("class"))
 
                                 var caseContour = document.getElementById(i + '.' + j);
                                 if (typeof caseContour.onclick == "function") {
-                                    caseContour.onclick.apply(caseContour);
+                                    // si il y a une fonction quand on clique dessus
+                                    caseContour.onclick.apply(caseContour); // simul de clic
                                 }
                             }
                         }
@@ -256,9 +262,6 @@ function bombesAdjacentes(coordCellule) {
 
     for (var i = Math.max(ligne - 1, 0); i <= Math.min(ligne + 1, taille - 1); i++) {
         for (var j = Math.max(colonne - 1, 0); j <= Math.min(colonne + 1, taille - 1); j++) {
-            console.log("bouton " + i + "." + j);
-
-            //console.log( grille.rows[i].cells[j]+" "+grille.rows[i].cells[j].getAttribute("possedeMine"))
             if (grille.rows[i].cells[j].getAttribute("possedeMine") == "true") {
                 compteurBombes++;
             }
@@ -271,27 +274,24 @@ function bombesAdjacentes(coordCellule) {
     return classes[compteurBombes]; // return le nom de la classe correspondant au 
 }
 
-function revelationCasesVides(coordCellule) {
-    if (grid.rows[i].cells[j].attr('possedemine') == "false") {
-        clicCellule(grid.rows[i].cells[j]);
-
-    }
-}
-
-
 function FinDePartie() {
     for (var i = 0; i <= (taille - 1); i++) {
         for (var j = 0; j <= (taille - 1); j++) {
             if (grille.rows[i].cells[j].getAttribute('possedeMine') == "false") {
                 if (!classes.includes(grille.rows[i].cells[j].className))
+
+                    // si une seule case bombe a été cliquée
                     return false;
             }
         }
     }
+
+    // si aucune case bombe n'a été cliquée
+
     clearInterval(timer); // on arrête l'attente
     $("td").prop("onclick", null).off("click"); // on désactive les clicks sur les cases
-    confetti.start()
-    alert("Victoire !")
+    confetti.start() // on lance les confettis
+    alert("Victoire !") // on affiche victoire
 }
 
 function gameOver() {
@@ -300,10 +300,9 @@ function gameOver() {
 
     for (var i = 0; i <= (taille - 1); i++) {
         for (var j = 0; j <= (taille - 1); j++) {
-            if (grille.rows[i].cells[j].getAttribute('possedeMine') == "true") {
+            if (grille.rows[i].cells[j].getAttribute('possedeMine') == "true") { // si c'est une bombe
                 let bombCell = grille.rows[i].cells[j];
-                console.log(bombCell);
-                bombCell.className = "bomb";
+                bombCell.className = "bomb"; // on affiche les bombes
             }
         }
     }
